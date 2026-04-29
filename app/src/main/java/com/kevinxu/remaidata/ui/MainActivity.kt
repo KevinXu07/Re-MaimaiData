@@ -27,7 +27,6 @@ import com.kevinxu.remaidata.ui.rating.RatingFragment
 import com.kevinxu.remaidata.ui.songlist.SongListFragment
 import com.kevinxu.remaidata.utils.JsonConvertToDb
 import com.kevinxu.remaidata.utils.SpUtil
-import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import kotlinx.coroutines.launch
 
@@ -113,13 +112,7 @@ class MainActivity : AppCompatActivity() {
      * check update
      */
     private fun checkUpdate() {
-        updateDisposable = Observable.zip(
-            MaimaiDataRequests.fetchAppUpdateInfo(),
-            MaimaiDataRequests.fetchDataUpdateInfo(),
-        ) { appUpdate, dataUpdate ->
-            appUpdate to dataUpdate
-        }.subscribe({ (appUpdate, dataUpdate) ->
-            isUpdateChecked = true
+        updateDisposable = MaimaiDataRequests.fetchAppUpdateInfo().subscribe({ appUpdate ->
             if (isNewerVersion(appUpdate.version, BuildConfig.VERSION_NAME) && !appUpdate.url.isNullOrBlank()) {
                 MaterialDialog.Builder(this).title(
                     this@MainActivity.getString(
@@ -141,7 +134,18 @@ class MainActivity : AppCompatActivity() {
                     }.onNegative { d, _ ->
                         d.dismiss()
                     }.autoDismiss(true).cancelable(true).show()
-            } else if (!dataUpdate.dataVersion3.isNullOrBlank()
+            }
+        }, {
+            it.printStackTrace()
+        })
+
+        checkDataUpdate()
+    }
+
+    private fun checkDataUpdate() {
+        MaimaiDataRequests.fetchDataUpdateInfo().subscribe({ dataUpdate ->
+            isUpdateChecked = true
+            if (!dataUpdate.dataVersion3.isNullOrBlank()
                 && SpUtil.getDataVersion() < dataUpdate.dataVersion3!!
             ) {
                 MaterialDialog.Builder(this)
@@ -162,6 +166,7 @@ class MainActivity : AppCompatActivity() {
                     }.autoDismiss(true).cancelable(true).show()
             }
         }, {
+            isUpdateChecked = true
             it.printStackTrace()
         })
     }
