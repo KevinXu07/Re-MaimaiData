@@ -55,7 +55,7 @@
     <string name="add_version">添加版本</string>
 
     <string name="maimai_achievement_format">%.2f%%</string>
-    <string name="maimaidx_scope_achievement_desc">%.4f%%-—%.4f%%</string>
+    <string name="maimaidx_scope_achievement_desc">%1$.4f%%-—%2$.4f%%</string>
     <string name="maimaidx_achievement_desc">%.4f%%</string>
     <string name="design">谱面作者</string>
     <string name="status">达成状态</string>
@@ -119,7 +119,7 @@
     <string name="new_version_15">现行版本：%d</string>
     <string name="old_version_divider">best 35 分界线</string>
     <string name="new_version_divider">best 15 分界线</string>
-    <string name="rating_scope">%d/%d</string>
+    <string name="rating_scope">%1$d/%2$d</string>
     <string name="save_best">保存图片</string>
     <string name="image_generation_error">图片生成失败</string>
     <string name="storage_permission_denied">保存失败，没有获取储存权限</string>
@@ -127,7 +127,7 @@
     <string name="version_query">版本进度</string>
     <string name="level_query">等级进度</string>
     <string name="switch_display">切换显示</string>
-    <string name="name_plate_achieved">%d/%d</string>
+    <string name="name_plate_achieved">%1$d/%2$d</string>
     <string name="mismatching_data_title">当前数据库不匹配查分数据</string>
     <string name="mismatching_data_content">当前数据库未包含新曲数据，显示的数据可能不准确，请等待数据库更新后再进行查分</string>
 
@@ -135,12 +135,16 @@
     <string name="maimai_data_update_default_content">BUG修复</string>
     <string name="maimai_data_update_download">下载</string>
     <string name="maimai_data_data_update_title">数据更新</string>
-    <string name="maimai_data_data_update_info">本地数据版本:%s，检测到数据版本:%s，需要现在更新吗？</string>
+    <string name="maimai_data_data_update_info">本地数据版本:%1$s，检测到数据版本:%2$s，需要现在更新吗？</string>
     <string name="maimai_data_download_title">正在下载</string>
     <string name="maimai_data_start_download">开始下载</string>
     <string name="maimai_data_download_error">下载出错，请重新下载</string>
     <string name="select_account_hint">请选择账号</string>
     <string name="type_in_account_pwd_hint">请输入用户名或密码</string>
+    <string name="saved_accounts_empty">无保存的账号</string>
+    <string name="delete_account">删除账号</string>
+    <string name="select_account">选择账号</string>
+    <string name="login_failed">登录失败，请稍后重试</string>
 
     <string name="start_proxy">开启代理</string>
     <string name="stop_proxy">关闭代理</string>
@@ -162,6 +166,12 @@
     <string name="settings_use_diving_fish_nickname">使用水鱼账号昵称</string>
     <string name="settings_update_difficulty">选择上传查分器难度</string>
     <string name="settings_difficulty_pick">选择难度</string>
+    <string name="single_rating_calculator">计算单曲rating</string>
+    <string name="rating_sheet_desc_1">单曲rating = 歌曲定数 x 系数 x 达成率(取整，不计小数)</string>
+    <string name="rating_sheet_desc_2">歌曲rating = 15个最高单曲rating(舞萌2025分类) + 35个最高单曲rating(舞萌2025以外分类)</string>
+    <string name="song_level_hint">定数</string>
+    <string name="song_achievement_hint">达成率</string>
+    <string name="single_rating_result">单曲 rating：%1$d</string>
 
     <string name="vpn_connected_status">connected</string>
     <string name="vpn_disconnected_status">disconnected</string>

@@ -159,7 +159,7 @@
             app:layout_constraintStart_toEndOf="@id/no_record_label"
             app:layout_constraintTop_toTopOf="@id/no_record_label" />
 
-        <com.paperpig.maimaidata.widgets.ChartBarView
+        <com.kevinxu.remaidata.widgets.ChartBarView
             android:id="@+id/chart_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

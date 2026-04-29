@@ -12,7 +12,7 @@
         android:clickable="true"
         android:focusable="true">
 
-        <com.paperpig.maimaidata.widgets.ClearEditText
+        <com.kevinxu.remaidata.widgets.ClearEditText
             android:id="@+id/search_edit_text"
             android:layout_width="0dp"
             android:layout_height="40dp"
